@@ -123,4 +123,48 @@ class StateAssignment:
 
                     print(f'\t\t\tResult: {result.name}')
 
+# --------------------------------------------------------------------------------------------------
+
+    def get_results_matrix_html(self):
+        """
+        Get HTML for results matrix.
+
+        Returns
+        -------
+        str
+            HTML code for results matrix.
+        """
+
+        h = '<html>'
+        h = h + '<head><title>'
+        h = h + self.name
+        h = h + '</title></head>'
+        h = h + '<body>'
+        h = h + '<h2><center>' + self.name + '</center></h2>'
+        h = h + '<table border="1">'
+        h = h + '<tr><th width="10%">&nbsp;</th>'
+        for thematic in self.state_assignment_years[0].thematics:
+            h = h + '<th width="30%">' + thematic.name + '</th>'
+        h = h + '</tr>'
+
+        for say in self.state_assignment_years:
+
+            h = h + '<tr><td><b>' + str(say.year) + '</b></td>'
+
+            for thematic in say.thematics:
+
+                h = h + '<td valign="top">'
+
+                for result in thematic.results:
+
+                    h = h + result.get_html() + '<br><br>'
+
+                h = h + '</td>'
+
+            h = h + '</tr>'
+
+        h = h + '</table>'
+        h = h + '</body></html>'
+        return h
+
 # ==================================================================================================

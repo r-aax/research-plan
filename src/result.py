@@ -28,4 +28,20 @@ class Result:
         self.responsible = responsible
         self.comment = comment
 
+# --------------------------------------------------------------------------------------------------
+
+    def get_html(self):
+        """
+        Get HTML for result.
+
+        Returns
+        -------
+        str
+            HTML code for result.
+        """
+
+        return self.name \
+               + '<br><i><font color="indianred">(' + str(self.responsible) + ')</font></i>' \
+               + '<br><i><font color="steelblue">(' + self.comment + ')</font></i>'
+
 # ==================================================================================================
