@@ -37,6 +37,6 @@ class Person:
             String representation.
         """
 
-        return f'{self.name}, {self.position}, {self.table_number}'
+        return f'{self.name}, {self.position}'
 
 # ==================================================================================================
