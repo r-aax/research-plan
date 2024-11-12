@@ -1,5 +1,6 @@
 from state_assigment_year import StateAssignmentYear
 from result import Result
+from html import *
 
 # ==================================================================================================
 
@@ -136,11 +137,9 @@ class StateAssignment:
         """
 
         h = '<html>'
-        h = h + '<head><title>'
-        h = h + self.name
-        h = h + '</title></head>'
+        h = h + head(title(self.name))
         h = h + '<body>'
-        h = h + '<h2><center>' + self.name + '</center></h2>'
+        h = h + h2(center(self.name))
         h = h + '<table border="1">'
         h = h + '<tr><th width="10%">&nbsp;</th>'
         for thematic in self.state_assignment_years[0].thematics:
@@ -153,13 +152,7 @@ class StateAssignment:
 
             for thematic in say.thematics:
 
-                h = h + '<td valign="top">'
-
-                for result in thematic.results:
-
-                    h = h + result.get_html() + '<br><br>'
-
-                h = h + '</td>'
+                h = h + td(thematic.get_results_html(), 'top')
 
             h = h + '</tr>'
 

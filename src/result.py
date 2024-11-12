@@ -1,3 +1,5 @@
+from html import *
+
 # ==================================================================================================
 
 class Result:
@@ -60,8 +62,10 @@ class Result:
         if self.is_rid():
             color = 'green'
 
-        return '<font color="' + color + '">' + self.name + '</font>' \
-               + '<br><i><font color="indianred">(' + str(self.responsible) + ')</font></i>' \
-               + '<br><i><font color="steelblue">(' + self.comment + ')</font></i>'
+        name_text = font(self.name, color)
+        resp_text = i(font(f'({str(self.responsible)})', 'indianred'))
+        comm_text = i(font(f'({self.comment})', 'steelblue'))
+
+        return name_text + '<br>' + resp_text + '<br>' + comm_text
 
 # ==================================================================================================

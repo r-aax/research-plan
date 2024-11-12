@@ -7,7 +7,7 @@ class Person:
 
 # --------------------------------------------------------------------------------------------------
 
-    def __init__(self, name, position, table_number):
+    def __init__(self, name, position, table_number, year):
         """
         Constructor.
 
@@ -19,11 +19,14 @@ class Person:
             Position string.
         table_number : int
             Table number.
+        year : int
+            Birth year.
         """
 
         self.name = name
         self.position = position
         self.table_number = table_number
+        self.year = year
 
 # --------------------------------------------------------------------------------------------------
 
