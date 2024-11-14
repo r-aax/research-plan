@@ -50,6 +50,62 @@ class StateAssignmentYear:
 
 # --------------------------------------------------------------------------------------------------
 
+    def doctors(self):
+        """
+        Get doctors count.
+
+        Returns
+        -------
+        int
+            Doctors count.
+        """
+
+        return sum([t.doctors for t in self.thematics])
+
+# --------------------------------------------------------------------------------------------------
+
+    def candidates(self):
+        """
+        Get candidates count.
+
+        Returns
+        -------
+        int
+            Candidates count.
+        """
+
+        return sum([t.candidates for t in self.thematics])
+
+# --------------------------------------------------------------------------------------------------
+
+    def rids(self):
+        """
+        Get rids count.
+
+        Returns
+        -------
+        int
+            Rids count.
+        """
+
+        return sum([t.rids for t in self.thematics])
+
+# --------------------------------------------------------------------------------------------------
+
+    def publications(self):
+        """
+        Get publications count.
+
+        Returns
+        -------
+        int
+            Publications count.
+        """
+
+        return sum([t.publications for t in self.thematics])
+
+# --------------------------------------------------------------------------------------------------
+
     def get_thematics_table_header_html(self):
         """
         Get HTML for table header.
@@ -82,7 +138,10 @@ class StateAssignmentYear:
 
         header_tr = self.get_thematics_table_header_html()
         tds_html = ''.join([td(thematic.get_results_html()) for thematic in self.thematics])
-        boody_tr = tr(f'{td(b(self.year))}{tds_html}')
+        year_and_indicators_text = f'<b>{self.year}</b><br>{self.doctors()} doctors<br>'\
+                                   f'{self.candidates()} candidates<br>{self.rids()} rids<br>'\
+                                   f'{self.publications()} publications)'
+        boody_tr = tr(f'{td(year_and_indicators_text)}{tds_html}')
 
         return table(f'{header_tr}{boody_tr}')
 
