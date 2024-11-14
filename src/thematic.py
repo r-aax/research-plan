@@ -9,7 +9,7 @@ class Thematic:
 
 # --------------------------------------------------------------------------------------------------
 
-    def __init__(self, name, year):
+    def __init__(self, name, year, percentage):
         """
         Constructor.
 
@@ -19,13 +19,30 @@ class Thematic:
             Name.
         year : int
             Year.
+        percentage : int
+            Percentage of whole year money.
         """
 
         self.name = name
         self.year = year
+        self.percentage = percentage
 
         # Empty results.
         self.results = []
+
+# --------------------------------------------------------------------------------------------------
+
+    def get_name_html(self):
+        """
+        Get name HTML.
+
+        Returns
+        -------
+        str
+            Name HTML.
+        """
+
+        return f'{self.name} (<i>{self.percentage}</i>%)'
 
 # --------------------------------------------------------------------------------------------------
 

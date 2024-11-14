@@ -46,9 +46,7 @@ class StateAssignmentYear:
             if th.name == name:
                 return th
 
-        new_th = Thematic(name, self.year)
-        self.thematics.append(new_th)
-        return new_th
+        assert False
 
 # --------------------------------------------------------------------------------------------------
 
@@ -65,7 +63,8 @@ class StateAssignmentYear:
         # NB! we work with 3 thematics.
         assert len(self.thematics) == 3
 
-        ths_html = ''.join([th(thematic.name, '30%') for thematic in self.thematics])
+        ths_html = ''.join([th(thematic.get_name_html(), '30%')
+                            for thematic in self.thematics])
 
         return tr(f'<th width="10%">&nbsp;</th>{ths_html}')
 
