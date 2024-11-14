@@ -31,7 +31,7 @@ class Thematic:
 
     def get_results_html(self):
         """
-        Get results HTML.
+        Get results HTML, written in one table cell as numerated list.
 
         Returns
         -------

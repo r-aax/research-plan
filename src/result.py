@@ -49,7 +49,7 @@ class Result:
 
     def get_html(self):
         """
-        Get HTML for result.
+        Get HTML for result, written in table cell.
 
         Returns
         -------
@@ -66,6 +66,6 @@ class Result:
         resp_text = i(font(f'({str(self.responsible)})', 'indianred'))
         comm_text = i(font(f'({self.comment})', 'steelblue'))
 
-        return name_text + '<br>' + resp_text + '<br>' + comm_text
+        return f'{name_text}<br>{resp_text}<br>{comm_text}'
 
 # ==================================================================================================

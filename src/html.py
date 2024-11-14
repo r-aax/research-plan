@@ -1,7 +1,7 @@
 
 # ==================================================================================================
 
-def hmtl(text):
+def html(text):
     """
     HTML tag.
 
@@ -77,7 +77,7 @@ def body(text):
 
 # --------------------------------------------------------------------------------------------------
 
-def table(text):
+def table(text, border='1'):
     """
     TABLE tag.
 
@@ -85,6 +85,8 @@ def table(text):
     ----------
     text : str
         Text.
+    border : str
+        Border text.
 
     Returns
     -------
@@ -92,7 +94,7 @@ def table(text):
         Text.
     """
 
-    return f'<table>{text}</table>'
+    return f'<table border="{border}">{text}</table>'
 
 # --------------------------------------------------------------------------------------------------
 
@@ -115,7 +117,7 @@ def tr(text):
 
 # --------------------------------------------------------------------------------------------------
 
-def th(text, width):
+def th(text, width, valign='top'):
     """
     TH tag.
 
@@ -125,6 +127,8 @@ def th(text, width):
         Text.
     width : str
         Width text.
+    valign : str
+        Vertical align.
 
     Returns
     -------
@@ -132,11 +136,14 @@ def th(text, width):
         Text.
     """
 
-    return f'<th width="{width}">{text}</th>'
+    if text == '':
+        text = '&nbsp;'
+
+    return f'<th width="{width}" valign="{valign}">{text}</th>'
 
 # --------------------------------------------------------------------------------------------------
 
-def td(text, valign):
+def td(text, valign='top'):
     """
     TD tag.
 
@@ -152,6 +159,9 @@ def td(text, valign):
     str
         Text.
     """
+
+    if text == '':
+        text = '&nbsp;'
 
     return f'<td valign="{valign}">{text}</td>'
 
@@ -214,6 +224,24 @@ def center(text):
 
     return f'<center>{text}</center>'
 
+# --------------------------------------------------------------------------------------------------
+
+def b(text):
+    """
+    B tag.
+
+    Parameters
+    ----------
+    text : str
+        Text.
+
+    Returns
+    -------
+    str
+        Text.
+    """
+
+    return f'<b>{text}</b>'
 # --------------------------------------------------------------------------------------------------
 
 def i(text):

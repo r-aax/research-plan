@@ -136,28 +136,11 @@ class StateAssignment:
             HTML code for results matrix.
         """
 
-        h = '<html>'
-        h = h + head(title(self.name))
-        h = h + '<body>'
-        h = h + h2(center(self.name))
-        h = h + '<table border="1">'
-        h = h + '<tr><th width="10%">&nbsp;</th>'
-        for thematic in self.state_assignment_years[0].thematics:
-            h = h + '<th width="30%">' + thematic.name + '</th>'
-        h = h + '</tr>'
+        head_html = head(title(self.name))
+        name_html = h2(center(self.name))
+        tables_html = ''.join([(say.get_html() + '<br>') for say in self.state_assignment_years])
+        body_html = name_html + tables_html
 
-        for say in self.state_assignment_years:
-
-            h = h + '<tr><td><b>' + str(say.year) + '</b></td>'
-
-            for thematic in say.thematics:
-
-                h = h + td(thematic.get_results_html(), 'top')
-
-            h = h + '</tr>'
-
-        h = h + '</table>'
-        h = h + '</body></html>'
-        return h
+        return html(f'{head_html}{body_html}')
 
 # ==================================================================================================
